@@ -61,7 +61,7 @@
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Location = new System.Drawing.Point(31, 102);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(171, 20);
+            this.lblFiltro.Size = new System.Drawing.Size(137, 16);
             this.lblFiltro.TabIndex = 2;
             this.lblFiltro.Text = "INGRESE ARTICULO";
             this.lblFiltro.Click += new System.EventHandler(this.lblBuscador_Click);
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 432);
+            this.ClientSize = new System.Drawing.Size(848, 658);
             this.Controls.Add(this.btnFiltro);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
