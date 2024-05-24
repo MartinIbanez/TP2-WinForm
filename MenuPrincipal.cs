@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
+using TP_2_Programacion3;
+
+
 
 namespace WinFormPantallas
 {
@@ -19,12 +21,7 @@ namespace WinFormPantallas
         }
 
 
-        //Boton para agregar un nuevo articulo
-        private void buttonBuscarArticulo_Click(object sender, EventArgs e)
-        {
-            MenuBuscarArticulo menuBuscarArticulo = new MenuBuscarArticulo();
-            menuBuscarArticulo.ShowDialog();
-        }
+        
         //OPCIONES DEL MENU...
         //ARTICULOS - Listar 
 
@@ -34,7 +31,7 @@ namespace WinFormPantallas
             {
                 if (item.GetType() == typeof(MenuListadoArticulos))
                 {
-                    MessageBox.Show("Ya existe esta ventana abierta");
+                    MessageBox.Show("Esta Opcion se encuentra en ejecucion");
                     return;
                 }
             }
@@ -44,6 +41,52 @@ namespace WinFormPantallas
             listado.Show();
         }
 
-        
+        private void AgregarArticuloMenu_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(MenuAgregarArticulo))
+                {
+                    MessageBox.Show("Esta Opcion se encuentra en ejecucion");
+                    return;
+                }
+            }
+
+            MenuAgregarArticulo listado= new MenuAgregarArticulo();
+            listado.MdiParent = this;
+            listado.Show();
+            
+
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(CrearCategoria))
+                {
+                    MessageBox.Show("Esta opcion se encuentra en ejecucion");
+                    return;
+                }
+            }
+            CrearCategoria ventana = new CrearCategoria();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void BuscadorArticuloMenu_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(MenuBuscarArticulo))
+                {
+                    MessageBox.Show("Esta opcion se encuentra en ejecucion");
+                    return;
+                }
+            }
+            MenuBuscarArticulo ventana= new MenuBuscarArticulo();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }

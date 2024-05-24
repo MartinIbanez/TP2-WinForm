@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            this.aRTICULOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ArticuloTSMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.AgregarArticuloMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarArticuloMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.BuscadorArticuloMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,47 +51,49 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // aRTICULOSToolStripMenuItem
+            // ArticuloTSMenu
             // 
-            this.aRTICULOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ArticuloTSMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AgregarArticuloMenu,
             this.ListarArticuloMenu,
             this.BuscadorArticuloMenu,
             this.ModificarArticuloMenu,
             this.eliminarArticuloMenu});
-            this.aRTICULOSToolStripMenuItem.Name = "aRTICULOSToolStripMenuItem";
-            this.aRTICULOSToolStripMenuItem.Size = new System.Drawing.Size(97, 34);
-            this.aRTICULOSToolStripMenuItem.Text = "ARTICULOS";
+            this.ArticuloTSMenu.Name = "ArticuloTSMenu";
+            this.ArticuloTSMenu.Size = new System.Drawing.Size(97, 24);
+            this.ArticuloTSMenu.Text = "ARTICULOS";
             // 
             // AgregarArticuloMenu
             // 
             this.AgregarArticuloMenu.Name = "AgregarArticuloMenu";
-            this.AgregarArticuloMenu.Size = new System.Drawing.Size(202, 26);
+            this.AgregarArticuloMenu.Size = new System.Drawing.Size(224, 26);
             this.AgregarArticuloMenu.Text = "Agregar articulo";
+            this.AgregarArticuloMenu.Click += new System.EventHandler(this.AgregarArticuloMenu_Click);
             // 
             // ListarArticuloMenu
             // 
             this.ListarArticuloMenu.Name = "ListarArticuloMenu";
-            this.ListarArticuloMenu.Size = new System.Drawing.Size(202, 26);
+            this.ListarArticuloMenu.Size = new System.Drawing.Size(224, 26);
             this.ListarArticuloMenu.Text = "Listado Articulos";
             this.ListarArticuloMenu.Click += new System.EventHandler(this.buscadorDeArticulosToolStripMenuItem_Click);
             // 
             // BuscadorArticuloMenu
             // 
             this.BuscadorArticuloMenu.Name = "BuscadorArticuloMenu";
-            this.BuscadorArticuloMenu.Size = new System.Drawing.Size(202, 26);
+            this.BuscadorArticuloMenu.Size = new System.Drawing.Size(224, 26);
             this.BuscadorArticuloMenu.Text = "Buscador ";
+            this.BuscadorArticuloMenu.Click += new System.EventHandler(this.BuscadorArticuloMenu_Click);
             // 
             // ModificarArticuloMenu
             // 
             this.ModificarArticuloMenu.Name = "ModificarArticuloMenu";
-            this.ModificarArticuloMenu.Size = new System.Drawing.Size(202, 26);
+            this.ModificarArticuloMenu.Size = new System.Drawing.Size(224, 26);
             this.ModificarArticuloMenu.Text = "Modificar";
             // 
             // eliminarArticuloMenu
             // 
             this.eliminarArticuloMenu.Name = "eliminarArticuloMenu";
-            this.eliminarArticuloMenu.Size = new System.Drawing.Size(202, 26);
+            this.eliminarArticuloMenu.Size = new System.Drawing.Size(224, 26);
             this.eliminarArticuloMenu.Text = "Eliminar";
             // 
             // cATEGORIASToolStripMenuItem
@@ -102,31 +104,32 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem1});
             this.cATEGORIASToolStripMenuItem.Name = "cATEGORIASToolStripMenuItem";
-            this.cATEGORIASToolStripMenuItem.Size = new System.Drawing.Size(109, 34);
+            this.cATEGORIASToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
             this.cATEGORIASToolStripMenuItem.Text = "CATEGORIAS";
             // 
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.crearToolStripMenuItem.Text = "Crear";
+            this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.agregarToolStripMenuItem.Text = "Agregar";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem1
             // 
             this.eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
+            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.eliminarToolStripMenuItem1.Text = "Eliminar";
             // 
             // iMAGENESToolStripMenuItem
@@ -134,7 +137,7 @@
             this.iMAGENESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listadoDeImagenesToolStripMenuItem});
             this.iMAGENESToolStripMenuItem.Name = "iMAGENESToolStripMenuItem";
-            this.iMAGENESToolStripMenuItem.Size = new System.Drawing.Size(95, 34);
+            this.iMAGENESToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
             this.iMAGENESToolStripMenuItem.Text = "IMAGENES";
             // 
             // listadoDeImagenesToolStripMenuItem
@@ -151,7 +154,7 @@
             this.modificarToolStripMenuItem2,
             this.eliminarToolStripMenuItem2});
             this.mARCASToolStripMenuItem.Name = "mARCASToolStripMenuItem";
-            this.mARCASToolStripMenuItem.Size = new System.Drawing.Size(82, 34);
+            this.mARCASToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.mARCASToolStripMenuItem.Text = "MARCAS";
             // 
             // agregarToolStripMenuItem1
@@ -182,13 +185,13 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aRTICULOSToolStripMenuItem,
+            this.ArticuloTSMenu,
             this.cATEGORIASToolStripMenuItem,
             this.iMAGENESToolStripMenuItem,
             this.mARCASToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1319, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1055, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -213,7 +216,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStripMenuItem aRTICULOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ArticuloTSMenu;
         private System.Windows.Forms.ToolStripMenuItem AgregarArticuloMenu;
         private System.Windows.Forms.ToolStripMenuItem ListarArticuloMenu;
         private System.Windows.Forms.ToolStripMenuItem BuscadorArticuloMenu;
@@ -234,4 +237,3 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
-

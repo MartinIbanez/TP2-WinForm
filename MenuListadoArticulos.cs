@@ -38,7 +38,7 @@ namespace WinFormPantallas
             dataGridViewListadoArticulos.Columns["Id"].Visible = false;
 
             cargarImagen(listaArticulos[0].ImagenUrl);
-            
+
         }
 
         private void cargarImagen(string URL)
@@ -47,7 +47,7 @@ namespace WinFormPantallas
             {
                 pictureBoxImagenesArticulos.Load(URL);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 pictureBoxImagenesArticulos.Load("https://media.istockphoto.com/id/1396814518/vector/image-coming-soon-no-photo-no-thumbnail-image-available-vector-illustration.jpg?s=612x612&w=0&k=20&c=hnh2OZgQGhf0b46-J2z7aHbIWwq8HNlSDaNp2wn_iko=");
             }
@@ -60,40 +60,32 @@ namespace WinFormPantallas
 
         private void dataGridViewListadoArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            if(dataGridViewListadoArticulos.CurrentRow != null) //  valida que haya una fila seleccionada
+            if (dataGridViewListadoArticulos.CurrentRow != null) //  valida que haya una fila seleccionada
             {
-                Articulo artSeleccionado =(Articulo) dataGridViewListadoArticulos.CurrentRow.DataBoundItem;
+                Articulo artSeleccionado = (Articulo)dataGridViewListadoArticulos.CurrentRow.DataBoundItem;
                 try
                 {
                     pictureBoxImagenesArticulos.Load(artSeleccionado.ImagenUrl);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     pictureBoxImagenesArticulos.Load("https://media.istockphoto.com/id/1396814518/vector/image-coming-soon-no-photo-no-thumbnail-image-available-vector-illustration.jpg?s=612x612&w=0&k=20&c=hnh2OZgQGhf0b46-J2z7aHbIWwq8HNlSDaNp2wn_iko=");
                 }
 
             }
-        
-        }
-
-        private void btnAgregarArticulo_Click(object sender, EventArgs e)
-        {
-            MenuAgregarArticulo menuAgregarArticulo = new MenuAgregarArticulo();
-            menuAgregarArticulo.ShowDialog();
-            cargar();
-            Close(); // Cierra la ventana después de cargar los datos
 
         }
 
+       
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(dataGridViewListadoArticulos.CurrentRow != null)
+            if (dataGridViewListadoArticulos.CurrentRow != null)
             {
                 Articulo artSeleccionado = (Articulo)dataGridViewListadoArticulos.CurrentRow.DataBoundItem;
                 MenuAgregarArticulo menuModificarArticulo = new MenuAgregarArticulo(artSeleccionado);
                 menuModificarArticulo.ShowDialog();
                 cargar();
-               
+
             }
             else
             {
@@ -110,14 +102,14 @@ namespace WinFormPantallas
 
             try
             {
-                DialogResult respuesta = MessageBox.Show(" Estas por eliminar un articulo. Esta accion no se puede deshacer.", "Eliminando", MessageBoxButtons.YesNo,MessageBoxIcon.Warning );
+                DialogResult respuesta = MessageBox.Show(" Estas por eliminar un articulo. Esta accion no se puede deshacer.", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if(respuesta == DialogResult.Yes)
+                if (respuesta == DialogResult.Yes)
                 {
-                Seleccionado = (Articulo)dataGridViewListadoArticulos.CurrentRow.DataBoundItem;
-                articulo.eliminar(Seleccionado.id);
-                cargar();   
-                   
+                    Seleccionado = (Articulo)dataGridViewListadoArticulos.CurrentRow.DataBoundItem;
+                    articulo.eliminar(Seleccionado.id);
+                    cargar();
+
                 }
 
             }
@@ -137,10 +129,11 @@ namespace WinFormPantallas
 
         private void limpiarPantalla()
         {
-            
+
 
 
         }
-      
+
+        
     }
 }

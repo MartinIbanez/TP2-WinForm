@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Dominio;
 using DataManager;
+using System.Data.SqlClient;
 
 namespace WinFormPantallas
 {
     public partial class MenuAgregarArticulo : Form
     {
-        private Articulo articuloSeleccionado = null;  
+        private Articulo articuloSeleccionado = null;
         public MenuAgregarArticulo()
         {
             InitializeComponent();
         }
 
-        public MenuAgregarArticulo( Articulo articuloSeleccionado)
+        public MenuAgregarArticulo(Articulo articuloSeleccionado)
         {
             InitializeComponent();
             this.articuloSeleccionado = articuloSeleccionado;
@@ -43,6 +43,7 @@ namespace WinFormPantallas
 
             CategoriaManager catNue = new CategoriaManager();
             MarcaManager marcaNue = new MarcaManager();
+
             try
             {
                 comboBoxCategorias.DataSource = catNue.Listar();
@@ -51,7 +52,7 @@ namespace WinFormPantallas
                 comboBoxMarcas.DataSource = marcaNue.Listar();
                 comboBoxMarcas.DisplayMember = "Descripcion";
 
-                if(articuloSeleccionado != null)
+                if (articuloSeleccionado != null)
                 {
                     textBoxNombreArticulo.Text = articuloSeleccionado.nombre;
                     textBoxDescripcion.Text = articuloSeleccionado.descripcion;
@@ -62,43 +63,44 @@ namespace WinFormPantallas
                     textBoxURL.Text = articuloSeleccionado.ImagenUrl;
                     cargarImagen(articuloSeleccionado.ImagenUrl);
                 }
-               
+
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
             finally
             {
                 datos.cerrarConexion();
-               
+
             }
         }
 
         private void btnAAceptar_Click(object sender, EventArgs e)
         {
             Articulo articuloNuevo = new Articulo();
-            ArticuloManager artMana = new ArticuloManager();   
+            ArticuloManager artMana = new ArticuloManager();
             try
             {
-                
-                articuloNuevo.descripcion=textBoxDescripcion.Text;
+
+                articuloNuevo.descripcion = textBoxDescripcion.Text;
                 articuloNuevo.precio = decimal.Parse(textBoxPrecio.Text);   //HAY QUE VALIDAR ESTO POR SI NO SE INTRODUCE UN VALOR DECIMAL
-                articuloNuevo.codigo=textBoxCodigoArticulo.Text;
-                articuloNuevo.nombre=textBoxNombreArticulo.Text;
+                articuloNuevo.codigo = textBoxCodigoArticulo.Text;
+                articuloNuevo.nombre = textBoxNombreArticulo.Text;
                 articuloNuevo.categoria = (Categoria)comboBoxCategorias.SelectedItem;
-                articuloNuevo.marca=(Marca)comboBoxMarcas.SelectedItem;
+                articuloNuevo.marca = (Marca)comboBoxMarcas.SelectedItem;
                 articuloNuevo.ImagenUrl = textBoxURL.Text;
                 //validarDatos();       // HACER ESTA FUNCION?
-                
+
                 //falta imagenes
                 artMana.agregar(articuloNuevo);
-                MessageBox.Show("Articulo Agregado!");
+                MessageBox.Show("Se agrego articulo con exito");
+                Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error al ingresar Articulo. Por favor, complete todos los campos");
             }
         }
 
@@ -123,6 +125,6 @@ namespace WinFormPantallas
             }
         }
 
-  
+
     }
 }
